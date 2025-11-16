@@ -504,7 +504,7 @@ export default function ModernPortfolio() {
           {/* Footer */}
           <div className={`mt-16 pt-8 border-t ${theme.border} text-center ${theme.textSecondary} text-sm`}>
             <p>© 2025 Remi Eli Kokou Akakpo - Tous droits réservés</p>
-            <p className="mt-2">Conçu avec passion pour la technologie</p>
+          
           </div>
         </div>
       </div>
