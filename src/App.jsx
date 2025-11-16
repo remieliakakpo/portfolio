@@ -87,7 +87,7 @@ export default function ModernPortfolio() {
       tasks: [
         "Installation de systèmes d'exploitation Windows et Linux",
         "Installation des produits Microsoft",
-        "Formation du personnel et participation aux formations"
+        "Formation du personnel"
       ],
       ongoing: true
     },
