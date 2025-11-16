@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import './App.css'
+import React, { useState } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, Award, Briefcase, Code, Database, Brain, Globe, Moon, Sun, Download, GraduationCap, Calendar, MapPin, Phone, MessageCircle, Cloud, Server, Settings, Network, BarChart } from 'lucide-react';
 
 export default function ModernPortfolio() {
@@ -57,7 +56,7 @@ export default function ModernPortfolio() {
       school: "Université de Lomé / École Polytechnique de Lomé",
       period: "Octobre 2024 - Juillet 2025",
       location: "Lomé, Togo",
-      grade: "Mention Bien (14.20/20)",
+      
       note: "Partenariat UTBM - Université de Lomé"
     },
     {
@@ -65,7 +64,7 @@ export default function ModernPortfolio() {
       school: "Université de Lomé / École Polytechnique de Lomé",
       period: "Février 2021 - Juin 2024",
       location: "Lomé, Togo",
-      grade: "Mention Assez-Bien (13.25/20)"
+     
     }
   ];
 
@@ -182,7 +181,7 @@ export default function ModernPortfolio() {
         </button>
 
         <div className="text-center mb-8 mt-4">
-          {/* Photo de profil */}
+          {/* Photo de profil - PLUS GRANDE */}
           <div className="w-48 h-48 mx-auto mb-6 rounded-2xl overflow-hidden border-4 border-indigo-500/40 shadow-2xl shadow-indigo-500/20">
             <img 
               src="/photo.jpg" 
@@ -197,14 +196,18 @@ export default function ModernPortfolio() {
               RA
             </div>
           </div>
-          <h1 className="text-2xl font-bold mb-2">Remi Eli Akakpo</h1>
+          <h1 className="text-2xl font-bold mb-2">Remi Eli Kokou Akakpo</h1>
           <p className={`${theme.accent} text-sm font-medium mb-4`}>Ingénieur Systèmes & Cloud</p>
           
           {/* Bouton CV */}
-          <button className={`${theme.button} px-6 py-3 rounded-xl font-medium transition-all hover:scale-105 shadow-lg flex items-center gap-2 mx-auto mb-6`}>
+          <a 
+            href="/CV_AKAKPO_REMI_ELI_KOKOU.pdf" 
+            download="CV_REMI_AKAKPO.pdf"
+            className={`${theme.button} px-6 py-3 rounded-xl font-medium transition-all hover:scale-105 shadow-lg flex items-center gap-2 mx-auto mb-6`}
+          >
             <Download className="w-4 h-4" />
             Voir mon CV
-          </button>
+          </a>
         </div>
 
         <nav className="space-y-2 mb-8">
@@ -254,7 +257,7 @@ export default function ModernPortfolio() {
             </a>
             
             <a 
-              href="https://github.com/remieliakakpo/"
+              href="https://github.com/remieliakakpo"
               target="_blank"
               rel="noopener noreferrer"
               className={`${theme.button} flex items-center gap-3 px-4 py-3 rounded-xl transition-all hover:scale-105 shadow-md`}
