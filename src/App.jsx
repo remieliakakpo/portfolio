@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Award, Briefcase, Code, Database, Brain, Globe, Moon, Sun, Download, GraduationCap, Calendar, MapPin, Phone, MessageCircle, Cloud, Server, Settings, Network, BarChart } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, Award, Briefcase, Code, Database, Brain, Globe, Moon, Sun, Download, GraduationCap, Calendar, MapPin, Phone, MessageCircle, Cloud, Server, Settings, Network, BarChart, FolderGit2 } from 'lucide-react';
 
 export default function ModernPortfolio() {
   const [activeSection, setActiveSection] = useState('about');
@@ -8,6 +8,8 @@ export default function ModernPortfolio() {
   const aboutMe = {
     name: "REMI ELI KOKOU AKAKPO",
     title: "Ingénieur Systèmes & Cloud | Spécialiste Infrastructure",
+    age: "22 ans",
+    location: "Lomé, Togo",
     email: "remieliakakpo@gmail.com",
     phone: "+228 91127584",
     description: "Étudiant en Master 2 en Informatique et Systèmes, passionné par les technologies du Cloud Computing, la virtualisation et l'architecture des systèmes distribués. Mon objectif est de me spécialiser dans la conception, le déploiement et la sécurisation d'infrastructures cloud afin d'accompagner les entreprises dans leur transformation numérique."
@@ -54,7 +56,6 @@ export default function ModernPortfolio() {
       school: "Université de Lomé / École Polytechnique de Lomé",
       period: "Octobre 2024 - Juillet 2025",
       location: "Lomé, Togo",
-      
       note: "Partenariat UTBM - Université de Lomé"
     },
     {
@@ -62,7 +63,6 @@ export default function ModernPortfolio() {
       school: "Université de Lomé / École Polytechnique de Lomé",
       period: "Février 2021 - Juin 2024",
       location: "Lomé, Togo",
-     
     }
   ];
 
@@ -85,8 +85,7 @@ export default function ModernPortfolio() {
       tasks: [
         "Installation de systèmes d'exploitation Windows et Linux",
         "Installation des produits Microsoft",
-        "Formation du personnel",
-        "Veille technologique"
+        "Formation du personnel"
       ],
       ongoing: true
     },
@@ -133,6 +132,7 @@ export default function ModernPortfolio() {
     ]
   };
 
+  // NOUVELLE SECTION PROJETS
   const projects = [
     {
       title: "Optimisation avec Machine Learning",
@@ -145,10 +145,10 @@ export default function ModernPortfolio() {
       github: "" // À compléter
     },
     {
-      title: "Conception d'un IHM pour automatiser les tests",
-      category: "Interface Homme-Machine (IHM)",
+      title: "Interface Homme-Machine (IHM)",
+      category: "Développement",
       description: "Conception et développement d'interfaces utilisateur intuitives et ergonomiques pour faciliter l'interaction homme-machine.",
-      technologies: ["Python", "Tkinter", , "React"],
+      technologies: ["Python", "Tkinter", "PyQt", "React"],
       icon: <Code className="w-6 h-6" />,
       color: "blue",
       link: "",
@@ -193,20 +193,8 @@ export default function ModernPortfolio() {
       color: "yellow",
       link: "",
       github: ""
-    },
-
-     {
-      title: "Système automatisé de détection de fumée et gestion des accès sous Cisco Packet Tracer",
-      category: "IOT",
-      description: "Réalisation d’un réseau IoT dans Packet Tracer pour automatiser la sécurité d’une pièce. Un capteur de fumée déclenche automatiquement l’alarme, ferme la porte et les fenêtres, et active un gicleur lorsque le seuil est dépassé. L’état des équipements est consultable via une passerelle IoT sécurisée en Wi-Fi.",
-      technologies: ["Python", "Bash", "Automation", "APIs"],
-      icon: <Settings className="w-6 h-6" />,
-      color: "yellow",
-      link: "",
-      github: ""
     }
   ];
-
 
   // Thème avec accent de couleur
   const theme = {
@@ -239,12 +227,13 @@ export default function ModernPortfolio() {
     green: darkMode ? 'text-green-400' : 'text-green-600',
     red: darkMode ? 'text-red-400' : 'text-red-600',
     purple: darkMode ? 'text-purple-400' : 'text-purple-600',
+    yellow: darkMode ? 'text-yellow-400' : 'text-yellow-600',
   };
 
   return (
-    <div className={`min-h-screen ${theme.bg} ${theme.text} transition-colors duration-500`}>
+    <div className={`min-h-screen ${theme.bg} ${theme.text} transition-colors duration-500 fixed inset-0 overflow-hidden`}>
       {/* Sidebar */}
-      <div className={`fixed left-0 top-0 h-screen w-96 ${theme.sidebar} backdrop-blur-md border-r p-8 overflow-y-auto transition-colors duration-500 shadow-2xl`}>
+      <div className={`fixed left-0 top-0 h-full w-96 ${theme.sidebar} backdrop-blur-md border-r p-8 overflow-y-auto transition-colors duration-500 shadow-2xl z-10`}>
         {/* Toggle Mode */}
         <button
           onClick={() => setDarkMode(!darkMode)}
@@ -255,7 +244,7 @@ export default function ModernPortfolio() {
         </button>
 
         <div className="text-center mb-8 mt-4">
-          {/* Photo de profil */}
+          {/* Photo de profil - PLUS GRANDE */}
           <div className="w-48 h-48 mx-auto mb-6 rounded-2xl overflow-hidden border-4 border-indigo-500/40 shadow-2xl shadow-indigo-500/20">
             <img 
               src="/photo.jpg" 
@@ -288,8 +277,9 @@ export default function ModernPortfolio() {
           {[
             { id: 'about', label: 'À propos' },
             { id: 'specializations', label: 'Domaines' },
-            { id: 'experience', label: 'Expériences' },
             { id: 'education', label: 'Formation' },
+            { id: 'experience', label: 'Expériences' },
+            { id: 'projects', label: 'Projets' },
             { id: 'skills', label: 'Compétences' },
             { id: 'soft-skills', label: 'Soft Skills' }
           ].map(section => (
@@ -358,8 +348,9 @@ export default function ModernPortfolio() {
       </div>
 
       {/* Main Content */}
-      <div className="ml-96 p-12">
-        <div className="max-w-6xl mx-auto">
+      <div className="ml-96 h-full overflow-y-auto">
+        <div className="min-h-full p-12">
+          <div className="max-w-6xl mx-auto">
           
           {/* About Section */}
           {activeSection === 'about' && (
@@ -418,6 +409,93 @@ export default function ModernPortfolio() {
                         <h3 className="text-2xl font-semibold mb-3">{spec.title}</h3>
                         <p className={`${theme.textSecondary} leading-relaxed text-base`}>{spec.description}</p>
                       </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* NOUVELLE SECTION PROJETS */}
+          {activeSection === 'projects' && (
+            <div className="space-y-6 animate-fadeIn">
+              <h2 className="text-4xl font-bold mb-8 flex items-center gap-3">
+                <div className="w-2 h-10 bg-gradient-to-b from-cyan-500 to-blue-500 rounded-full"></div>
+                Projets Réalisés
+              </h2>
+              <div className="grid grid-cols-2 gap-6">
+                {projects.map((project, i) => (
+                  <div key={i} className={`${theme.card} backdrop-blur-md border rounded-2xl p-6 ${theme.cardHover} transition-all hover:shadow-xl group relative overflow-hidden`}>
+                    {/* Badge catégorie */}
+                    <div className={`absolute top-4 right-4 ${theme.button} px-3 py-1 rounded-full text-xs font-medium`}>
+                      {project.category}
+                    </div>
+                    
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className={`${colorMap[project.color]} group-hover:scale-110 transition-transform p-3 ${theme.button} rounded-xl`}>
+                        {project.icon}
+                      </div>
+                      <div className="flex-1 pr-20">
+                        <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                      </div>
+                    </div>
+                    
+                    <p className={`${theme.textSecondary} leading-relaxed text-sm mb-4`}>
+                      {project.description}
+                    </p>
+                    
+                    {/* Technologies */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.technologies.map((tech, j) => (
+                        <span key={j} className={`${theme.button} px-2 py-1 rounded-md text-xs font-medium`}>
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    
+                    {/* Liens */}
+                    <div className={`flex gap-3 pt-4 border-t ${theme.border}`}>
+                      {project.link ? (
+                        <a 
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`flex items-center gap-2 ${theme.button} px-4 py-2 rounded-lg text-sm font-medium transition-all hover:scale-105`}
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          Voir le projet
+                        </a>
+                      ) : (
+                        <button 
+                          disabled
+                          className={`flex items-center gap-2 ${theme.button} px-4 py-2 rounded-lg text-sm font-medium opacity-50 cursor-not-allowed`}
+                          title="Lien à venir"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          Bientôt disponible
+                        </button>
+                      )}
+                      
+                      {project.github ? (
+                        <a 
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`flex items-center gap-2 ${theme.button} px-4 py-2 rounded-lg text-sm font-medium transition-all hover:scale-105`}
+                        >
+                          <Github className="w-4 h-4" />
+                          Code
+                        </a>
+                      ) : (
+                        <button 
+                          disabled
+                          className={`flex items-center gap-2 ${theme.button} px-4 py-2 rounded-lg text-sm font-medium opacity-50 cursor-not-allowed`}
+                          title="Code à venir"
+                        >
+                          <Github className="w-4 h-4" />
+                          Code
+                        </button>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -575,36 +653,11 @@ export default function ModernPortfolio() {
             </div>
           )}
 
-          
-          {/* project Section */}
-          {activeSection === 'projects' && (
-            <div className="space-y-6 animate-fadeIn">
-              <h2 className="text-4xl font-bold mb-8 flex items-center gap-3">
-                <div className="w-2 h-10 bg-gradient-to-b from-amber-500 to-orange-500 rounded-full"></div>
-                projects
-              </h2>
-              <div className="grid gap-6">
-                {Object.entries(softSkills).map(([category, projects], i) => (
-                  <div key={i} className={`${theme.card} backdrop-blur-md border rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all`}>
-                    <h3 className="text-2xl font-bold mb-6">{category}</h3>
-                    <div className="grid grid-cols-3 gap-4">
-                      {projects.map((skill, j) => (
-                        <div key={j} className={`${theme.button} p-4 rounded-xl text-center font-medium transition-all hover:scale-105`}>
-                          {projects}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
           {/* Footer */}
           <div className={`mt-16 pt-8 border-t ${theme.border} text-center ${theme.textSecondary} text-sm`}>
             <p>© 2025 Remi Eli Kokou Akakpo - Tous droits réservés</p>
-          
           </div>
+        </div>
         </div>
       </div>
 
