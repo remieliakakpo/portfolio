@@ -8,8 +8,6 @@ export default function ModernPortfolio() {
   const aboutMe = {
     name: "REMI ELI KOKOU AKAKPO",
     title: "Ingénieur Systèmes & Cloud | Spécialiste Infrastructure",
-    age: "22 ans",
-    location: "Lomé, Togo",
     email: "remieliakakpo@gmail.com",
     phone: "+228 91127584",
     description: "Étudiant en Master 2 en Informatique et Systèmes, passionné par les technologies du Cloud Computing, la virtualisation et l'architecture des systèmes distribués. Mon objectif est de me spécialiser dans la conception, le déploiement et la sécurisation d'infrastructures cloud afin d'accompagner les entreprises dans leur transformation numérique."
@@ -374,15 +372,15 @@ export default function ModernPortfolio() {
                     <div className="flex items-center gap-3">
                       <Calendar className={`w-5 h-5 ${theme.accent}`} />
                       <div>
-                        <p className={`text-xs ${theme.textSecondary}`}>Âge</p>
-                        <p className="font-medium">{aboutMe.age}</p>
+                        
+                        
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
                       <MapPin className={`w-5 h-5 ${theme.accent}`} />
                       <div>
-                        <p className={`text-xs ${theme.textSecondary}`}>Localisation</p>
-                        <p className="font-medium">{aboutMe.location}</p>
+                        
+                        
                       </div>
                     </div>
                   </div>
