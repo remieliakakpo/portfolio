@@ -8,8 +8,6 @@ export default function ModernPortfolio() {
   const aboutMe = {
     name: "REMI ELI KOKOU AKAKPO",
     title: "Ingénieur Systèmes & Cloud | Spécialiste Infrastructure",
-    age: "22 ans",
-    location: "Lomé, Togo",
     email: "remieliakakpo@gmail.com",
     phone: "+228 91127584",
     description: "Étudiant en Master 2 en Informatique et Systèmes, passionné par les technologies du Cloud Computing, la virtualisation et l'architecture des systèmes distribués. Mon objectif est de me spécialiser dans la conception, le déploiement et la sécurisation d'infrastructures cloud afin d'accompagner les entreprises dans leur transformation numérique."
@@ -87,7 +85,8 @@ export default function ModernPortfolio() {
       tasks: [
         "Installation de systèmes d'exploitation Windows et Linux",
         "Installation des produits Microsoft",
-        "Formation du personnel"
+        "Formation du personnel",
+        "Veille technologique"
       ],
       ongoing: true
     },
@@ -133,6 +132,81 @@ export default function ModernPortfolio() {
       "Autonomie"
     ]
   };
+
+  const projects = [
+    {
+      title: "Optimisation avec Machine Learning",
+      category: "Machine Learning",
+      description: "Projet d'optimisation utilisant des algorithmes de Machine Learning pour améliorer les performances et l'efficacité des systèmes.",
+      technologies: ["Python", "Scikit-learn", "Pandas", "NumPy"],
+      icon: <Brain className="w-6 h-6" />,
+      color: "purple",
+      link: "", // À compléter
+      github: "" // À compléter
+    },
+    {
+      title: "Conception d'un IHM pour automatiser les tests",
+      category: "Interface Homme-Machine (IHM)",
+      description: "Conception et développement d'interfaces utilisateur intuitives et ergonomiques pour faciliter l'interaction homme-machine.",
+      technologies: ["Python", "Tkinter", , "React"],
+      icon: <Code className="w-6 h-6" />,
+      color: "blue",
+      link: "",
+      github: ""
+    },
+    {
+      title: "Système IDS/IPS avec Snort",
+      category: "Sécurité",
+      description: "Mise en place d'un système de détection et de prévention d'intrusion (IDS/IPS) pour surveiller et protéger le réseau contre les menaces.",
+      technologies: ["Snort", "Linux", "Réseaux", "Sécurité"],
+      icon: <Network className="w-6 h-6" />,
+      color: "red",
+      link: "",
+      github: ""
+    },
+    {
+      title: "Configuration FreeRADIUS",
+      category: "Infrastructure",
+      description: "Configuration d'un serveur FreeRADIUS pour l'authentification centralisée et la gestion des accès réseau avec portail captif.",
+      technologies: ["FreeRADIUS", "DaloRADIUS", "Coova-Chilli", "Linux"],
+      icon: <Server className="w-6 h-6" />,
+      color: "green",
+      link: "",
+      github: ""
+    },
+    {
+      title: "Portail Captif Coova-Chilli",
+      category: "Réseaux",
+      description: "Déploiement d'un portail captif pour contrôler l'accès Internet avec authentification et gestion des utilisateurs.",
+      technologies: ["Coova-Chilli", "Apache", "MySQL", "PHP"],
+      icon: <Globe className="w-6 h-6" />,
+      color: "blue",
+      link: "",
+      github: ""
+    },
+    {
+      title: "Automatisation Python",
+      category: "DevOps",
+      description: "Scripts Python pour l'automatisation des tâches système, le traitement de données et l'administration réseau.",
+      technologies: ["Python", "Bash", "Automation", "APIs"],
+      icon: <Settings className="w-6 h-6" />,
+      color: "yellow",
+      link: "",
+      github: ""
+    },
+
+     {
+      title: "Système automatisé de détection de fumée et gestion des accès sous Cisco Packet Tracer",
+      category: "IOT",
+      description: "Réalisation d’un réseau IoT dans Packet Tracer pour automatiser la sécurité d’une pièce. Un capteur de fumée déclenche automatiquement l’alarme, ferme la porte et les fenêtres, et active un gicleur lorsque le seuil est dépassé. L’état des équipements est consultable via une passerelle IoT sécurisée en Wi-Fi.",
+      technologies: ["Python", "Bash", "Automation", "APIs"],
+      icon: <Settings className="w-6 h-6" />,
+      color: "yellow",
+      link: "",
+      github: ""
+    }
+  ];
+
 
   // Thème avec accent de couleur
   const theme = {
@@ -181,7 +255,7 @@ export default function ModernPortfolio() {
         </button>
 
         <div className="text-center mb-8 mt-4">
-          {/* Photo de profil - PLUS GRANDE */}
+          {/* Photo de profil */}
           <div className="w-48 h-48 mx-auto mb-6 rounded-2xl overflow-hidden border-4 border-indigo-500/40 shadow-2xl shadow-indigo-500/20">
             <img 
               src="/photo.jpg" 
@@ -196,7 +270,7 @@ export default function ModernPortfolio() {
               RA
             </div>
           </div>
-          <h1 className="text-2xl font-bold mb-2">Remi Eli Kokou Akakpo</h1>
+          <h1 className="text-2xl font-bold mb-2">Remi Eli Kokou AKAKPO</h1>
           <p className={`${theme.accent} text-sm font-medium mb-4`}>Ingénieur Systèmes & Cloud</p>
           
           {/* Bouton CV */}
@@ -492,6 +566,31 @@ export default function ModernPortfolio() {
                       {skills.map((skill, j) => (
                         <div key={j} className={`${theme.button} p-4 rounded-xl text-center font-medium transition-all hover:scale-105`}>
                           {skill}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          
+          {/* project Section */}
+          {activeSection === 'projects' && (
+            <div className="space-y-6 animate-fadeIn">
+              <h2 className="text-4xl font-bold mb-8 flex items-center gap-3">
+                <div className="w-2 h-10 bg-gradient-to-b from-amber-500 to-orange-500 rounded-full"></div>
+                projects
+              </h2>
+              <div className="grid gap-6">
+                {Object.entries(softSkills).map(([category, projects], i) => (
+                  <div key={i} className={`${theme.card} backdrop-blur-md border rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all`}>
+                    <h3 className="text-2xl font-bold mb-6">{category}</h3>
+                    <div className="grid grid-cols-3 gap-4">
+                      {projects.map((skill, j) => (
+                        <div key={j} className={`${theme.button} p-4 rounded-xl text-center font-medium transition-all hover:scale-105`}>
+                          {projects}
                         </div>
                       ))}
                     </div>
